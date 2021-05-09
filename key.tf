@@ -4,3 +4,4 @@ resource "aws_key_pair" "mykeypair" {
   lifecycle {
     ignore_changes = [public_key]
   }
+}

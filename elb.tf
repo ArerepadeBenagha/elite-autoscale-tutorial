@@ -19,7 +19,5 @@ resource "aws_elb" "my-elb" {
   cross_zone_load_balancing   = true
   connection_draining         = true
   connection_draining_timeout = 400
-  tags = {
-    Name = "my-elb"
-  }
+tags = local.common_tags
 }

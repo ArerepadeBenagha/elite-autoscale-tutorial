@@ -22,10 +22,7 @@ resource "aws_security_group" "myinstance" {
     protocol        = "tcp"
     security_groups = [aws_security_group.elb-securitygroup.id]
   }
-
-  tags = {
-    Name = "myinstance"
-  }
+  tags = local.common_tags
 }
 
 resource "aws_security_group" "elb-securitygroup" {
@@ -45,7 +42,5 @@ resource "aws_security_group" "elb-securitygroup" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = {
-    Name = "elb"
-  }
+  tags = local.common_tags
 }

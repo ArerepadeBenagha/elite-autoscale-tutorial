@@ -29,6 +29,9 @@ resource "aws_autoscaling_group" "Elite-autoscale" {
   health_check_type         = "ELB"
   load_balancers            = [aws_elb.my-elb.name]
   force_delete              = true
-
-tag = local.common_tags
+  tag {
+    key                 = "Name"
+    value               = "elite-autoscaleVM"
+    propagate_at_launch = true
+  }
 }
